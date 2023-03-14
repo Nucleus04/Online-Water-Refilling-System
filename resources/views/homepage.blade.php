@@ -31,29 +31,45 @@
     </style>
 </head>
 <body>
-    <div class="w-full h-screen">
+    <div class="w-full h-full">
         <div>
             <x-Header time="{{$transaction}}"/>
         <div>
-            <div class="flex h-48 justify-center items-center">
-                <div class="w-96 grid grid-cols-3">
-                    <div>
-                        <div class="w-24 h-24 rounded-md border-4 border-red-500 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
-                            <p class="text-6xl">{{$pending}}</p>
+            <div class="flex h-96 md:h-48 justify-center items-center">
+                <div>
+                    <div class="w-full flex flex-wrap justify-center">
+                        <div class="mx-2">
+                            <div class="w-24 h-24 rounded-md border-4 border-red-500 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                                <p class="text-6xl">{{$pending}}</p>
+                            </div>
+                            <p class="text-center font-bold">On Queue</p>
                         </div>
-                        <p class="text-center font-bold">On Queue</p>
-                    </div>
-                    <div>
-                        <div class="w-24 h-24 rounded-md border-4 border-amber-500 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
-                            <p class="text-6xl">{{$proccessing}}</p>
+                        <div class="mx-2">
+                            <div class="w-24 h-24 rounded-md border-4 border-amber-500 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                                <p class="text-6xl">{{$proccessing}}</p>
+                            </div>
+                            <p class="text-center font-bold">Processing</p>
                         </div>
-                        <p class="text-center font-bold">Processing</p>
-                    </div>
-                    <div>
-                        <div class="w-24 h-24 rounded-md border-4 border-lime-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
-                            <p class="text-6xl">{{$todeliver}}</p>
+                        <div class="mx-2">
+                            <div class="w-24 h-24 rounded-md border-4 border-lime-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                                <p class="text-6xl">{{$todeliver}}</p>
+                            </div>
+                            <p class="text-center font-bold">To Deliver</p>
                         </div>
-                        <p class="text-center font-bold">To Deliver</p>
+                        <div class="sm:mx-2 sm:w-auto w-full">
+                            @if ($info->status == 'Pending')
+                            <div class="w-24 h-24 rounded-md border-4 border-red-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                            @endif
+                            @if ($info->status == 'Proccessing')
+                            <div class="w-24 h-24 rounded-md border-4 border-amber-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                            @endif
+                            @if ($info->status == 'To Deliver')
+                            <div class="w-24 h-24 rounded-md border-4 border-lime-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                            @endif
+                                <p class="text-6xl">{{$rowcount}}</p>
+                            </div>
+                            <p class="text-center font-bold">Your Order <br> on Queue</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,7 +77,7 @@
             <div>
                 <p class="text-lg font-bold sm:ml-12 text-center sm:text-left">Know more about water</p>
                 <div class="w-full flex justify-center items-center h-96">
-                    <div class="w-4/5 flex overflow-x-auto overflow-y-hidden scroll-smooth">
+                    <div class="w-11/12 sm:w-4/5 flex overflow-x-auto overflow-y-hidden scroll-smooth">
 
                         <button id="buttonone" type="button" class="w-72 h-72 bg-sky-300 rounded-xl shrink-0 shadow-lg hover:drop-shadow-xl hover:scale-105 m-6 transition">
                             <div class="flex w-full h-full items-center">

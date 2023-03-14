@@ -12,6 +12,15 @@ class HomepageController extends Controller
         $activeorder  = new ActiveOrderCounter();
         $time = $activeorder->ActiveOrder();
 
+        $session_email = session('userID');
+        $transaction = transaction::where('userID','=',$session_email)->orderBy('created_at', 'desc')->first();
+
+        if($transaction->refID != NULL){
+            $rowcount = transaction::where('status', '=', 'Pending')->where('refID','<',$transaction->refID)->count();
+        }
+        $rowcount = $rowcount + 1;
+
+
         $pending = transaction::where('status','=',"Pending")->count();
         if($pending == NULL)
         {
@@ -27,6 +36,6 @@ class HomepageController extends Controller
         {
             $todeliver = 0;
         }
-        return view('homepage',['transaction'=>$time, 'pending'=>$pending, 'proccessing'=>$proccessing, 'todeliver'=>$todeliver]);
+        return view('homepage',['transaction'=>$time, 'pending'=>$pending, 'proccessing'=>$proccessing, 'todeliver'=>$todeliver, 'info'=>$transaction, 'rowcount'=>$rowcount]);
     }
 }

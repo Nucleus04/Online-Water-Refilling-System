@@ -23,23 +23,8 @@ class placeOrderController extends Controller
         $totalprice = 0;
 
         $transaction = transaction::where('userID','=',$session_email)->where('status','=',"Pending")->first();
-        if($transaction == NULL)
-        {
-            $transaction = transaction::where('userID','=',$session_email)->where('status','=',"Cancelled")->first();
-
-            if($transaction != NULL)
-            {
-                $time = $transaction->prefferedTime;
-            }
-            else
-            {
-                $time = "No Order";
-            }
-        }
-        else
-        {
-            $time = $transaction->prefferedTime;
-        }
+        $activeorder  = new ActiveOrderCounter();
+        $time = $activeorder->ActiveOrder();
 
         if($customer_data->container1 != NULL)
         {

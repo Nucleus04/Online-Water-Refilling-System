@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>View Transaction</title>
 
-    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{url('/css/login.css')}}">
 </head>
 <body>
@@ -27,10 +27,12 @@
                         <p>No transactions history.</p>
                     @endif
                     @foreach ($history as $item)
-                   <div class="w-full rounded-xl  shadow-xl mx-15 my-8 hover:scale-105 transition">
-                    <div class="sm:ml-8 ml-4 flex flex-row my-2 justify-evenly">
+                <div class="w-full rounded-xl  shadow-xl mx-15 my-8 hover:scale-105 transition flex justify-center flex-wrap">
+                    <div class="flex">
                         <p class="text-lg my-2 mx-2"><b>Transaction Number: </b>{{$item->refID}} </p>
                         <p class="text-lg my-2 mx-2"><b>Date: </b>{{$item->created_at}}</p>
+                    </div>
+                    <div class="flex">
                         <p class="text-lg my-2 mx-2"><b>Price: </b> {{$item->price}}</p>
                         <p class="text-lg my-2 mx-2"><b>Status: </b>{{$item->status}}</p>
                     </div>

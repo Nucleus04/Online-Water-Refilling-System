@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OWRS - Active Orders</title>
     <link rel="icon" href="{{'/assets/logo2.png'}}" type="image/x-icon">
-    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{url('/css/login.css')}}">
 </head>
 <body>
@@ -16,8 +16,8 @@
     <div class="flex flex-wrap justify-between">
         <div class="sm:w-2/3 w-full mt-6">
 
-            <div name="transaction-details-table" class="mx-5 border-2 rounded-lg border-neutral-600 shadow-xl">
-                <div class="flex flex-row justify-between border-b-2 px-5 border-neutral-600">
+            <div name="transaction-details-table" class="mx-5 border-2 rounded-lg border-gray-400 shadow-xl">
+                <div class="flex flex-row justify-between border-b-2 px-5 border-gray-400">
                     <h3 class="text-red-500"><b>Transaction Number: {{$transaction->refID}}</b></h3>
                 </div>
                 <div class="px-10 mt-1">
@@ -69,11 +69,24 @@
         </div>
 
             <div name="status-order-summary-table" class="sm:w-1/3 w-full my-6">
+                @if ($transaction->status == 'Pending')
                 <div class=" h-10 flex bg-red-500 rounded-lg justify-center sm:mr-5 sm:mx-0 mx-5">
                     <p class="text-white text-xl self-center"><b>{{$transaction->status}}</b></p>
                 </div>
-                <div class="border-2 mt-4 rounded-lg border-neutral-600 sm:mr-5 sm:mx-0 mx-5 shadow-xl">
-                    <div class="border-solid border-b-2 border-neutral-600">
+                @endif
+                @if ($transaction->status == 'Proccessing')
+                <div class=" h-10 flex bg-amber-500 rounded-lg justify-center sm:mr-5 sm:mx-0 mx-5">
+                    <p class="text-white text-xl self-center"><b>{{$transaction->status}}</b></p>
+                </div>
+                @endif
+                @if ($transaction->status == 'To Deliver')
+                <div class=" h-10 flex bg-lime-500 rounded-lg justify-center sm:mr-5 sm:mx-0 mx-5">
+                    <p class="text-white text-xl self-center"><b>{{$transaction->status}}</b></p>
+                </div>
+                @endif
+
+                <div class="border-2 mt-4 rounded-lg border-gray-400 sm:mr-5 sm:mx-0 mx-5 shadow-xl">
+                    <div class="border-solid border-b-2 border-gray-400">
                         <h3 class="pl-3 text-green-400"><b>Order Summary</b></h3>
                     </div>
                     <div class="px-5 py-1.5 h-full">
@@ -99,9 +112,14 @@
                             <p class="w-4/5 text-sm text-neutral-600"><b>Delivery fee</b></p>
                             <p class="w-1/5 text-sm text-neutral-600"><b>P 0.00</b></p>
                         </div>
-                        <div class="flex flex-row px-2 mt-2 bg-neutral-500 rounded-md">
+                        <div class="flex flex-row px-2 mt-2 bg-slate-300 rounded-md">
                             <p class="w-4/5 text-lg"><b>Total</b></p>
                             <p class="w-1/5 text-lg"><b>{{$transaction->totalprice}}</b></p>
+                        </div>
+                        <div class="flex justify-center content-end my-4">
+                            <div class="px-5 py-1.5 bg-slate-300 w-11/12 border border-neutral-600 rounded-lg">
+                                <p class="text-xs">Note: You cannot cancel your order if it is already processing.</p>
+                            </div>
                         </div>
                         @if ($transaction->status == "Pending")
                             <button type="button" class="w-full my-2 py-1 rounded-lg border border-neutral-600 text-xl text-neutral-600"><a href="/cancellingorder"><b>Cancel Order</b></a></button>

@@ -7,9 +7,7 @@
     <link rel="icon" href="{{'/assets/logo2.png'}}" type="image/x-icon">
     <title>OWRS-Place Order</title>
     <link rel="stylesheet" href="{{url('/css/login.css')}}">
-</head>
-<body>
-    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         .modal{
@@ -36,7 +34,7 @@
             <div class="flex flex-wrap">
 
                 <div class="md:w-2/3 w-full md:mt-4">
-                    <div class="w-4/5 rounded-xl border shadow-xl mx-auto mt-8 hover:scale-105 transition">
+                    <div class="w-4/5 rounded-xl border overflow-hidden shadow-xl mx-auto mt-8 hover:scale-105 transition">
                         <div class="w-full border-b flex">
                             <p class="font-bold text-lg text-red-500  ml-2 basis-11/12">Step 1: Verify your information</p>
                             <button class="font-bold text-center basis-1/12 mr-4 hover:scale-110 text-sm" type="button" id="edit1">Edit</button>
@@ -68,7 +66,7 @@
                             </form>
                         </div>
                         <div class="flex justify-center content-end my-4">
-                            <div class="px-5 py-1.5 bg-neutral-500 w-11/12 border border-neutral-600 rounded-lg">
+                            <div class="px-5 py-1.5 bg-slate-300 w-11/12 border border-neutral-600 rounded-lg">
                                 <p class="text-xs">Note: You must give an allowance of 2 hours for the processing of your order. So if you are ordering at 2pm you must have a preferred time of 4pm and beyond.</p>
                             </div>
                         </div>
@@ -184,11 +182,11 @@
                                 <p class="w-4/5 text-sm text-neutral-600"><b>Delivery fee</b></p>
                                 <p class="w-1/5 text-sm text-neutral-600"><b>P0.00</b></p>
                             </div>
-                            <div class="flex flex-row px-2 mt-2 bg-neutral-500 rounded-md">
+                            <div class="flex flex-row px-2 mt-2 bg-slate-300 rounded-md">
                                 <p class="w-4/5 text-lg"><b>Total</b></p>
                                 <p class="w-1/5 text-lg"><b>{{$users->totalprice}}</b></p>
                             </div>
-                            <p class="text-xs">Note: You can place your order if you have active order.</p>
+                            <p class="text-xs">Note: You cannot place your order if you have active order.</p>
 
                             <button type="submit" form="timeform" class="w-full my-2 py-1 rounded-lg bg-green-400 text-xl text-white"
                             @if ($users->count > 0)

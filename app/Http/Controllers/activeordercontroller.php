@@ -11,7 +11,7 @@ class ActiveOrderController extends Controller
     {
         $session_email = session('userID');
 
-        $transaction = transaction::where('userID','=',$session_email)->where('status','=',"Pending")->first();
+        $transaction = transaction::where('userID','=',$session_email)->latest()->first();
 
         $activeorder  = new ActiveOrderCounter();
         $time = $activeorder->ActiveOrder();

@@ -7,7 +7,7 @@
     <link rel="icon" href="{{'/assets/logo2.png'}}" type="image/x-icon">
     <title>OWRS-Profile</title>
 
-    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{url('/css/login.css')}}">
     <style>
         .modal{

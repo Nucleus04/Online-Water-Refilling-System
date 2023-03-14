@@ -11,7 +11,7 @@ class ActiveOrderCounter extends Controller
     {
         $session_email = session('userID');
 
-        $transaction = transaction::where('userID','=',$session_email)->where('status','=',"Pending")->first();
+        $transaction = transaction::where('userID','=',$session_email)->where('status','=',"Pending")->orWhere('status', '=', 'Proccessing')->orWhere('status', '=', 'To Deliver')->first();
 
         if($transaction == NULL)
         {
