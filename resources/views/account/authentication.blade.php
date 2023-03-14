@@ -49,8 +49,8 @@
             <div class="flex w-full md:w-1/2 items-center justify-center">
                 <h1 class="text-center text-4xl font-bold md:m-6 mx-12">Online Water Refilling System</h1>
             </div>
-            <div class=" md:w-1/2 md:flex md:items-center md:justify-center w-4/5 mx-auto hover:drop-shadow-xl">
-                <div class="w-4/5 shadow-xl rounded-3xl mx-auto hover:scale-105 transition">
+            <div class=" md:w-1/2 md:flex md:items-center md:justify-center sm:w-4/5 w-full mx-auto hover:drop-shadow-xl">
+                <div class="w-11/12 xsm-4/5 shadow-xl rounded-3xl mx-auto hover:scale-105 transition">
                     <form action="/login" method="POST" class="mx-auto w-4/5">
                         @csrf
                         @error('firstname')
@@ -110,7 +110,7 @@
     </div>
 
     <div id="registrationmodal" class="modal">
-        <div class="modalcontent transition w-96 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
+        <div class="modalcontent transition xsm:w-96 w-11/12 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
             <span class="close float-right text-lg font-bold cursor-pointer rounded-full hover:bg-red-600 px-2 transition hover:-translate-y-1">&times;</span>
             <h2 class="font-bold mb-3">Sign Up</h2>
             <div class="mx-2">
