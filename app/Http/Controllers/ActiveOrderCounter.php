@@ -11,24 +11,22 @@ class ActiveOrderCounter extends Controller
     {
         $session_email = session('userID');
 
-        $transaction = transaction::where('userID','=',$session_email)->where('status','=',"Pending")->orWhere('status', '=', 'Proccessing')->orWhere('status', '=', 'To Deliver')->first();
-
-        if($transaction == NULL)
+        $transactions = transaction::where('userID','=',$session_email)->latest()->first();
+        if($transactions != NULL)
         {
-            $transaction = transaction::where('userID','=',$session_email)->where('status','=',"Cancelled")->first();
-
-            if($transaction != NULL)
+            if($transactions->status == 'Cancelled')
             {
-                $time = $transaction->prefferedTime;
+
+                    $time = "No Order";
             }
             else
             {
-                $time = "No Order";
+                $time = $transactions->prefferedTime;
             }
         }
         else
         {
-            $time = $transaction->prefferedTime;
+            $time = "No Order";
         }
 
         return $time;

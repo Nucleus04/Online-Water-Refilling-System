@@ -71,17 +71,22 @@
             <div name="status-order-summary-table" class="sm:w-1/3 w-full my-6">
                 @if ($transaction->status == 'Pending')
                 <div class=" h-10 flex bg-red-500 rounded-lg justify-center sm:mr-5 sm:mx-0 mx-5">
-                    <p class="text-white text-xl self-center"><b>{{$transaction->status}}</b></p>
+                    <p class="text-white text-xl self-center"><b>Status: {{$transaction->status}}</b></p>
                 </div>
                 @endif
                 @if ($transaction->status == 'Proccessing')
                 <div class=" h-10 flex bg-amber-500 rounded-lg justify-center sm:mr-5 sm:mx-0 mx-5">
-                    <p class="text-white text-xl self-center"><b>{{$transaction->status}}</b></p>
+                    <p class="text-white text-xl self-center"><b>Status: {{$transaction->status}}</b></p>
                 </div>
                 @endif
                 @if ($transaction->status == 'To Deliver')
                 <div class=" h-10 flex bg-lime-500 rounded-lg justify-center sm:mr-5 sm:mx-0 mx-5">
-                    <p class="text-white text-xl self-center"><b>{{$transaction->status}}</b></p>
+                    <p class="text-white text-xl self-center"><b>Status: {{$transaction->status}}</b></p>
+                </div>
+                @endif
+                @if ($transaction->status == 'Cancelled')
+                <div class=" h-10 flex bg-red-500 rounded-lg justify-center sm:mr-5 sm:mx-0 mx-5">
+                    <p class="text-white text-xl self-center"><b>Status: {{$transaction->status}}</b></p>
                 </div>
                 @endif
 

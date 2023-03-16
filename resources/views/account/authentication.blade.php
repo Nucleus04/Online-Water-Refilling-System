@@ -50,7 +50,7 @@
                 <h1 class="text-center text-4xl font-bold md:m-6 mx-12">Online Water Refilling System</h1>
             </div>
             <div class=" md:w-1/2 md:flex md:items-center md:justify-center sm:w-4/5 w-full mx-auto hover:drop-shadow-xl">
-                <div class="w-11/12 xsm-4/5 shadow-xl rounded-3xl mx-auto hover:scale-105 transition">
+                <div class="w-11/12 xsm-4/5 shadow-xl rounded-3xl mx-auto">
                     <form action="/login" method="POST" class="mx-auto w-4/5">
                         @csrf
                         @error('firstname')

@@ -14,9 +14,21 @@ class HomepageController extends Controller
 
         $session_email = session('userID');
         $transaction = transaction::where('userID','=',$session_email)->orderBy('created_at', 'desc')->first();
-
+        $rowcount = 0;
+        if($transaction != NULL)
         if($transaction->refID != NULL){
+           if($transaction->status == "Pending")
+           {
             $rowcount = transaction::where('status', '=', 'Pending')->where('refID','<',$transaction->refID)->count();
+           }
+           if($transaction->status == "Proccessing")
+           {
+            $rowcount = transaction::where('status', '=', 'Proccessing')->where('refID','<',$transaction->refID)->count();
+           }
+           if($transaction->status == "To Deliver")
+           {
+            $rowcount = transaction::where('status', '=', 'To Deliver')->where('refID','<',$transaction->refID)->count();
+           }
         }
         $rowcount = $rowcount + 1;
 

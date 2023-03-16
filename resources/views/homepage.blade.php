@@ -57,16 +57,28 @@
                             <p class="text-center font-bold">To Deliver</p>
                         </div>
                         <div class="sm:mx-2 sm:w-auto w-full">
-                            @if ($info->status == 'Pending')
-                            <div class="w-24 h-24 rounded-md border-4 border-red-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
-                            @endif
-                            @if ($info->status == 'Proccessing')
-                            <div class="w-24 h-24 rounded-md border-4 border-amber-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
-                            @endif
-                            @if ($info->status == 'To Deliver')
-                            <div class="w-24 h-24 rounded-md border-4 border-lime-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
-                            @endif
+                            @if ($info != NULL)
+                                @if ($info->status == 'Pending')
+                                <div class="w-24 h-24 rounded-md border-4 border-red-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
                                 <p class="text-6xl">{{$rowcount}}</p>
+                                @endif
+                                @if ($info->status == 'Proccessing')
+                                <div class="w-24 h-24 rounded-md border-4 border-amber-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                                <p class="text-6xl">{{$rowcount}}</p>
+                                @endif
+                                @if ($info->status == 'To Deliver')
+                                <div class="w-24 h-24 rounded-md border-4 border-lime-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                                <p class="text-6xl">{{$rowcount}}</p>
+                                @endif
+                                @if ($info->status == 'Cancelled')
+                                <div class="w-24 h-24 rounded-md border-4 border-sky-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                                <p class="text-center">No active Order</p>
+                                @endif
+
+                            @else
+                            <div class="w-24 h-24 rounded-md border-4 border-sky-400 mx-auto flex justify-center items-center hover:-translate-y-0.5 shadow-lg">
+                            <p class="text-center">No active Order</p>
+                            @endif
                             </div>
                             <p class="text-center font-bold">Your Order <br> on Queue</p>
                         </div>
