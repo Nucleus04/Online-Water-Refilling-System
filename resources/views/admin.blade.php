@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
-</head>
-<body>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
 
-    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{url('/css/login.css')}}">
     <style>
         .dropbtn {
@@ -87,33 +85,31 @@
             </div>
         <!-- Current Orders -->
         <div class="mt-5">
-            <p class="text-lg font-bold sm:ml-12 text-center sm:text-left"> List of current active orders: </p>
+            <p class="text-lg font-bold sm:ml-12 text-center sm:text-left"> List of recent active orders: </p>
                 <!-- While Loop -->
+                <br>
                 <div class="flex flex-row justify-center">
-                    <div class="md:w-5/6 w-full mx-15">
-                    @if ($transaction != NULL)
-                        @foreach ($transaction as $item)
-
-                        <div class="w-full rounded-xl border shadow-xl mx-15 my-8 hover:scale-105 transition">
-                            <div class="sm:ml-8 ml-4 flex flex-row my-2 flex-wrap justify-evenly items-center font-semibold">
-                                <p class="text-lg my-2">{{$item->address}} </p>
-                                <p class="text-lg my-2">{{$item->created_at}} </p>
-                                <div class="dropdown">
-                                    <button onclick="myFunction()" class="dropbtn">{{$item->status}}</button>
-                                    <div id="myDropdown" class="dropdown-content">
-                                      <a href="#">Processing</a>
-                                      <a href="#">To Deliver</a>
-                                      <a href="#">Delivered</a>
-                                    </div>
-                                  </div>
-                                <button id="buttonstatus" type="button" class="sm:w-36 sm:h-12 w-32 h-12 bg-purple text-lg text-slate-50 my-2 rounded-lg">View Order</button>
+                    <div class="md:w-5/6 w-11/12 mx-15  border-2 border-zinc-500 rounded-lg flex justify-center">
+                        <div class="w-11/12">
+                            <div class="my-2 w-full grid grid-cols-5 border-b-2 border-zinc-500 pb-4">
+                                <p class="mx-2 text-sky-500 font-bold">Name</p>
+                                <p class="mx-2 text-teal-500 font-bold">Address</p>
+                                <p class="mx-2 text-purple-500 font-bold">Contact Number</p>
+                                <p class="mx-2 text-rose-500 font-bold">Status</p>
+                                <p class="mx-2 text-lime-500 font-bold">Date</p>
                             </div>
+                            @foreach ($recents as $item)
+                                <div class="my-2 flex border border-zinc-500 rounded-md flex-wrap">
+                                    <p class="mx-2 text-sky-500">{{$item->name}}</p>
+                                    <p class="mx-2 text-teal-500">{{$item->address}}</p>
+                                    <p class="mx-2 text-purple-500">{{$item->contactNumber}}</p>
+                                    <p class="mx-2 text-rose-500">{{$item->status}}</p>
+                                    <p class="mx-2 text-lime-500">{{$item->created_at}}</p>
+                                </div>
+                            @endforeach
                         </div>
-
-                        @endforeach
-                    @endif
+                    </div>
                 </div>
-        </div>
     </div>
 
 

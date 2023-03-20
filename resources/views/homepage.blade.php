@@ -20,8 +20,6 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
         }
         .modalcontent{
             background-color: #fefefe;
@@ -32,6 +30,7 @@
 </head>
 <body>
     <div class="w-full h-full">
+        <div id="body">
         <div>
             <x-Header time="{{$transaction}}"/>
         <div>
@@ -98,25 +97,14 @@
                         </button>
                         <button id="buttontwo" class="w-72 h-72 bg-sky-300 rounded-xl shrink-0 shadow-lg hover:drop-shadow-xl hover:scale-105 m-6 transition">
                             <div class="flex w-full h-full items-center">
-                                <p class="text-4xl font-bold text-left m-3">Some shit about water</p>
+                                <p class="text-4xl font-bold text-left m-3">Benefits of drinking 8 glasses of water</p>
                             </div>
                         </button>
                         <button id="buttonthree" class="w-72 h-72 bg-sky-300 rounded-xl shrink-0 shadow-lg hover:drop-shadow-xl hover:scale-105 m-6 transition">
                             <div class="flex w-full h-full items-center">
-                                <p class="text-4xl font-bold text-left m-3">Some shit about water</p>
+                                <p class="text-4xl font-bold text-left m-3">Different kind of drinking water.</p>
                             </div>
                         </button>
-                        <button id="buttonfour" class="w-72 h-72 bg-sky-300 rounded-xl shrink-0 shadow-lg hover:drop-shadow-xl hover:scale-105 m-6 transition">
-                            <div class="flex w-full h-full items-center">
-                                <p class="text-4xl font-bold text-left m-3">Some shit about water</p>
-                            </div>
-                        </button>
-                        <button id="buttonfive" class="w-72 h-72 bg-sky-300 rounded-xl shrink-0 shadow-lg hover:drop-shadow-xl hover:scale-105 m-6 transition">
-                            <div class="flex w-full h-full items-center">
-                                <p class="text-4xl font-bold text-left m-3">Some shit about water</p>
-                            </div>
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -124,39 +112,23 @@
         </div>
 
     </div>
+</div>
 
     <div id="informationmodal1" class="modal">
-        <div class="modalcontent transition w-96 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
-            <span class="close float-right text-lg font-bold cursor-pointer rounded-full hover:bg-red-600 px-2 transition hover:-translate-y-1">&times;</span>
-            <p id="content1">Hello World</p>
+        <div class="modalcontent transition sm:w-96  w-11/12 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
+            <p id="content1">Water is an essential component for human life, and it plays a crucial role in almost every aspect of our lives. We use water for drinking, cooking, and washing, and it is also necessary for the production of food and other goods. Additionally, water is essential for the functioning of ecosystems and the natural environment, providing habitats for various plants and animals. However, water can also have negative impacts, such as flooding and waterborne diseases, and access to clean water is a major concern in many parts of the world. Overall, water is a vital resource that affects our lives in many ways, and its sustainable management and conservation are essential for our well-being and the health of the planet.</p>
         </div>
     </div>
 
     <div id="informationmodal2" class="modal">
-        <div class="modalcontent transition w-96 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
-            <span class="close float-right text-lg font-bold cursor-pointer rounded-full hover:bg-red-600 px-2 transition hover:-translate-y-1">&times;</span>
-            <p id="content2">ayaya ayaya</p>
+        <div class="modalcontent transition sm:w-96  w-11/12 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
+            <p id="content2">Drinking 8 glasses of water per day has many benefits for the human body. First and foremost, it helps to keep the body hydrated, which is essential for many bodily functions. Water also helps to regulate body temperature, flush out toxins, and transport nutrients throughout the body. Additionally, drinking enough water can help to improve skin health, boost energy levels, and support healthy digestion. Adequate hydration is also important for maintaining a healthy weight, as drinking water can help to reduce feelings of hunger and prevent overeating. Overall, drinking 8 glasses of water per day is an easy and effective way to promote overall health and well-being.</p>
         </div>
     </div>
 
     <div id="informationmodal3" class="modal">
-        <div class="modalcontent transition w-96 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
-            <span class="close float-right text-lg font-bold cursor-pointer rounded-full hover:bg-red-600 px-2 transition hover:-translate-y-1">&times;</span>
-            <p id="content3">jessie kadusale</p>
-        </div>
-    </div>
-
-    <div id="informationmodal4" class="modal">
-        <div class="modalcontent transition w-96 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
-            <span class="close float-right text-lg font-bold cursor-pointer rounded-full hover:bg-red-600 px-2 transition hover:-translate-y-1">&times;</span>
-            <p id="content4">miguel liwanag</p>
-        </div>
-    </div>
-
-    <div id="informationmodal5" class="modal">
-        <div class="modalcontent transition w-96 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
-            <span class="close float-right text-lg font-bold cursor-pointer rounded-full hover:bg-red-600 px-2 transition hover:-translate-y-1">&times;</span>
-            <p id="content5">vincent divida</p>
+        <div class="modalcontent transition sm:w-96  w-11/12 lg:w-1/3 md:w-1/2 sm:w-96 shadow-xl rounded-xl hover:drop-shadow-xl">
+            <p id="content3">There are several different types of drinking water, each with its unique characteristics and benefits. Tap water is the most common type of drinking water, and it is usually safe to drink, although the taste and quality can vary depending on the source. Mineral water is another type of drinking water that contains high levels of minerals, such as calcium and magnesium, which can provide health benefits. Spring water is another type of drinking water that comes from natural springs and is often promoted for its purity and mineral content. Distilled water is a type of purified water that has been processed to remove impurities, and it is often used in medical settings. Finally, alkaline water is a type of water that has a higher pH level than tap water and is claimed to provide health benefits, although these claims are not supported by scientific evidence. Ultimately, the type of drinking water you choose will depend on your individual preferences and needs.</p>
         </div>
     </div>
 
